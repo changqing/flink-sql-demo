@@ -25,6 +25,7 @@ FROM maven:3.6-jdk-8-slim AS builder
 # Get data producer code and compile it
 COPY ./java/sql-demo-data-producer /opt/data-producer
 RUN cd /opt/data-producer; \
+    cp ./settings.xml ~/.m2/  \
     mvn clean install
 
 ###############################################################################
